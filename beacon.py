@@ -45,8 +45,8 @@ TRSYNC_TIMEOUT_DEFAULT = 0.025
 class BeaconProbe:
     def __init__(self, config, sensor_id):
         self.id = sensor_id
-        self.printer = config.get_printer()
-        self.reactor = self.printer.get_reactor()
+        self.printer = printer = config.get_printer()
+        self.reactor = printer.get_reactor()
         self.mcu_temp_wrapper = BeaconMCUTempWrapper(self)
         self.name = config.get_name()
         self.gcode = self.printer.lookup_object("gcode")
